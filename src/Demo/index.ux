@@ -1,0 +1,83 @@
+<template>
+  <div class="chessboard">
+
+    <block for="row in rowList">
+      <div class="row">
+
+        <block for="{{row.grids}}">
+          <div class="content-wrap">
+            <img
+              class="img"
+              style="background-color:{{$item.color}}"
+              src="{{$item.image}}"
+            />
+          </div>
+        </block> <!-- column block -->
+
+      </div>
+    </block> <!-- row block -->
+
+  </div>
+</template>
+<script>
+export default {
+  data: {
+    /**
+    * {location:{x, y}, image:""}
+    */
+    images: [],
+    lineNum: 8,
+    colmnNum: 7,
+
+    /**
+    * {color:#fff, image:""}
+    */
+    rowList: [],
+  },
+  configChessBoard() {
+    let color1 = "#a30"
+    let color2 = "#3a5"
+
+    var st = 0
+    for (var row = 0; row < this.lineNum; row++) {
+      var grids = []
+      for (var col = 0; col < this.colmnNum; col++) {
+        var color = st == 0 ? color1 : color2
+        var image
+        grids.push({
+          color: color,
+          image: image
+        })
+        st = st == 0 ? 1 : 0
+      }
+      this.rowList.push({ grids })
+    }
+  },
+  onInit() {
+    this.configChessBoard()
+  },
+}
+</script>
+<style lang="less">
+.chessboard {
+  flex-grow: 1;
+  background-color: #333333;
+  flex-direction: column;
+}
+.row {
+  flex-direction: row;
+  width: 100%;
+}
+.content-wrap {
+  padding-top: 14.2%;
+}
+.img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  left: 0px;
+  top: 0px;
+  flex-grow: 1;
+}
+</style>
