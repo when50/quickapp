@@ -12,10 +12,10 @@
               src="{{$item.image}}"
             />
           </div>
-        </block> <!-- column block -->
+        </block>
 
       </div>
-    </block> <!-- row block -->
+    </block>
 
   </div>
 </template>
@@ -26,7 +26,7 @@ export default {
     * {location:{x, y}, image:""}
     */
     images: [],
-    lineNum: 8,
+    lineNum: 9,
     colmnNum: 7,
 
     /**

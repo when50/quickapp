@@ -29,7 +29,7 @@
     "designWidth": 750
   },
   "router": {
-    "entry": "Demo",
+    "entry": "DemoDetail",
     "pages": {
       "Demo": {
         "component": "index"
